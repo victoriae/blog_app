@@ -49,3 +49,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'seed_migration'
 gem 'faker', '~> 2.17'
+
+gem 'devise'
