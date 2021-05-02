@@ -2,5 +2,7 @@
 
 <%= render 'form', category: @category %>
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+<div class="d-inline-block border-top pt-3">
+  <%= link_to 'Show', @category, class: 'btn btn-info' %>
+  <%= link_to 'List', categories_path, class: 'btn btn-secondary' %>
+</div>
