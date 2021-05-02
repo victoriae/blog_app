@@ -52,3 +52,4 @@ gem 'faker', '~> 2.17'
 
 gem 'devise'
 gem 'bootstrap', '~> 5.0.0.beta3'
+gem 'octicons_helper'
