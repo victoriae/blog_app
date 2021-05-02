@@ -1,3 +1,7 @@
+// Bootstrap fix for select on Safari
+.form-select {
+  -webkit-appearance: none;
+}
 tr {
   vertical-align: middle;
 }

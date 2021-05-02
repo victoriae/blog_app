@@ -15,27 +15,27 @@
     <%= form.hidden_field :user_id, value: user_id %>
   <% end %>
 
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.collection_select :category_id, Category.order(:name), :id, :name %>
+  <div class="mb-3">
+    <%= form.label :category_id, class: 'form-label' %>
+    <%= form.collection_select :category_id, Category.order(:name), :id, :name, {}, {:class=>'form-select'} %>
   </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="mb-3">
+    <%= form.label :title, class: 'form-label' %>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+  <div class="mb-3">
+    <%= form.label :content, class: 'form-label' %>
+    <%= form.text_area :content, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :active %>
-    <%= form.check_box :active %>
+  <div class="mb-3 form-check form-switch">
+    <%= form.label :active, class: 'form-check-label' %>
+    <%= form.check_box :active, class: 'form-check-input' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Update Article', class: 'btn btn-primary mb-3' %>
   </div>
 <% end %>

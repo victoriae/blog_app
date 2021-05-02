@@ -1,29 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-lg-4 mb-3">
+    <%= image_tag 'https://via.placeholder.com/800x600',
+                  class: 'card-img-top',
+                  alt: ''%>
+  </div>
+  <div class="col-lg-6 mb-3">
+    <h1><%= @article.title %></h1>
+    <p>Category: <%= @article.category.name %></p>
+    <p>Published: <%= @article.created_at.strftime('%d/%m/%Y') %></p>
+    <p>Author: <%= @article.user.full_name %></p>
+  </div>
+</div>
+<%= raw @article.content %>
 
-<p>
-  <strong>Category:</strong>
-  <%= @article.category_id %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @article.content %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @article.user_id %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @article.active %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<div class="pt-3">
+  <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-warning' %>
+  <%= link_to 'List', articles_path, class: 'btn btn-secondary' %>
+</div>
