@@ -51,3 +51,4 @@ gem 'seed_migration'
 gem 'faker', '~> 2.17'
 
 gem 'devise'
+gem 'bootstrap', '~> 5.0.0.beta3'
