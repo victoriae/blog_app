@@ -1,29 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Categories</h1>
+<div class="position-relative">
+  <h1>Categories</h1>
+  <%= link_to 'New Category', new_category_path, class: 'btn btn-primary position-absolute bottom-0 end-0' %>
+</div>
 
-<table>
-  <thead>
+<table class="table table-striped table-hover">
+  <thead class="table-primary">
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th colspan="3"></th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
-
   <tbody>
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.name %></td>
         <td><%= category.description %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to category, class: 'icon-link d-block' do %>
+            <%= octicon "eye", :height => 24, class: 'icon-link__icon d-block' %>
+            <span class="icon-link__text d-block">show</span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_category_path(category), class: 'icon-link d-block' do %>
+            <%= octicon "pencil", :height => 24, class: 'icon-link__icon d-block' %>
+            <span class="icon-link__text d-block">edit</span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to category, method: :delete,
+                                data: { confirm: 'Are you sure?' },
+                                class: 'icon-link d-block' do %>
+            <%= octicon "trash", :height => 24, class: 'icon-link__icon d-block' %>
+            <span class="icon-link__text d-block">delete</span>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Category', new_category_path %>

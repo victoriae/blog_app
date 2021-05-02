@@ -1,0 +1,19 @@
+tr {
+  vertical-align: middle;
+}
+.icon-link {
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
+  &:hover &{
+    &__icon {
+      fill: var(--bs-primary);
+    }
+    &__text {
+      color: var(--bs-primary);
+    }
+  }
+  &__icon {
+    margin: 0 auto;
+  }
+}
