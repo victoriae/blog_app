@@ -1,4 +1,21 @@
 // Bootstrap fix for select on Safari
+.nav-icon {
+  --dark-color: white;
+  --light-color: black;
+  --fill-opacity: .55;
+  --fill-opacity-hover: .75;
+  fill-opacity: var(--fill-opacity);
+}
+.nav-item:hover .nav-icon {
+  fill-opacity: var(--fill-opacity-hover);
+}
+.navbar-dark .nav-icon {
+  fill: var(--dark-color);
+}
+.navbar-light .nav-icon {
+  fill: var(--light-color);
+}
+
 .form-select {
   -webkit-appearance: none;
 }
