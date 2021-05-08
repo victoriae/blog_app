@@ -30,12 +30,14 @@
     <%= form.text_area :content, class: 'form-control' %>
   </div>
 
-  <div class="mb-3 form-check form-switch">
-    <%= form.label :active, class: 'form-check-label' %>
-    <%= form.check_box :active, class: 'form-check-input' %>
-  </div>
-
+  <% if current_user.admin? %>
+    <div class="mb-3 form-check form-switch">
+      <%= form.label :active, class: 'form-check-label' %>
+      <%= form.check_box :active, class: 'form-check-input' %>
+    </div>
+  <% end %>
+  
   <div class="actions">
-    <%= form.submit 'Update Article', class: 'btn btn-primary mb-3' %>
+    <%= form.submit 'Save Article', class: 'btn btn-primary mb-3' %>
   </div>
 <% end %>

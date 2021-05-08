@@ -18,39 +18,43 @@
 </div>
 
 <div class="pt-3 mb-3">
-  <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-warning' %>
+  <% if current_user.admin? || current_user == @article.user%>
+    <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-warning' %>
+  <% end %>
   <%= link_to 'List', articles_path, class: 'btn btn-secondary' %>
 </div>
 
-<hr>
+<% if @comments.any? %>
+  <hr>
 
-<div class="row">
-  <div class="col-12">
-    <h2>Comments</h2>
-  </div>
-  <% @comments.each do | comment | %>
+  <div class="row">
     <div class="col-12">
-      <div class="card border-light mb-3 comment__card">
-        <div class="card-header d-flex">
-          <div class ="user__comment-image me-2">
-            <%= image_tag 'https://via.placeholder.com/50',
-                          class: 'card-img-top rounded-circle',
-                          alt: ''%>
+      <h2>Comments</h2>
+    </div>
+    <% @comments.each do | comment | %>
+      <div class="col-12">
+        <div class="card border-light mb-3 comment__card">
+          <div class="card-header d-flex">
+            <div class ="user__comment-image me-2">
+              <%= image_tag 'https://via.placeholder.com/50',
+                            class: 'card-img-top rounded-circle',
+                            alt: ''%>
+            </div>
+            <div class="user__comment-info">
+              <h5 class="card-title mb-0"><%= comment.user.full_name %></h5>
+              <p class="card-text">
+                <small class="text-muted"><%= comment.created_at.strftime('%B %e, %Y @ %H:%M') %></small>
+              </p>
+            </div>
           </div>
-          <div class="user__comment-info">
-            <h5 class="card-title mb-0"><%= comment.user.full_name %></h5>
-            <p class="card-text">
-              <small class="text-muted"><%= comment.created_at.strftime('%B %e, %Y @ %H:%M') %></small>
-            </p>
+          <div class="card-body">
+            <p class="card-text"><%= comment.comment %></p>
           </div>
-        </div>
-        <div class="card-body">
-          <p class="card-text"><%= comment.comment %></p>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>
 
 <hr>
 
