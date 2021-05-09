@@ -18,10 +18,26 @@
 </div>
 
 <div class="pt-3 mb-3">
-  <% if current_user.admin? || current_user == @article.user%>
+  <% if current_user && (current_user.admin? || current_user == @article.user) %>
     <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-warning' %>
   <% end %>
   <%= link_to 'List', articles_path, class: 'btn btn-secondary' %>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-12">
+    <% if current_user.present? %>
+      <%= render 'comment', comment: @comment,
+                            user_id: current_user.id,
+                            article_id: @article.id %>
+    <% else %>
+      <div class="alert alert-info" role="alert">
+        You must be logged in to post a comment.
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <% if @comments.any? %>
@@ -53,17 +69,5 @@
         </div>
       </div>
     <% end %>
-  </div>
-<% end %>
-
-<hr>
-
-<% if current_user.present? %>
-  <div class="row">
-    <div class="col-12">
-      <%= render 'comment', comment: @comment,
-                            user_id: current_user.id,
-                            article_id: @article.id %>
-    </div>
   </div>
 <% end %>
