@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :youtube, only: :show
   resources :comments
   resources :articles
   resources :categories

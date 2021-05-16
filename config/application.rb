@@ -34,5 +34,9 @@ module BlogApp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.to_prepare do
+      ActionText::ContentHelper.allowed_tags << "iframe"
+    end
   end
 end
