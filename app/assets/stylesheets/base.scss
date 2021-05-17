@@ -19,25 +19,7 @@
 .form-select {
   -webkit-appearance: none;
 }
-tr {
-  vertical-align: middle;
-}
-.icon-link {
-  text-align: center;
-  color: inherit;
-  text-decoration: none;
-  &:hover &{
-    &__icon {
-      fill: var(--bs-primary);
-    }
-    &__text {
-      color: var(--bs-primary);
-    }
-  }
-  &__icon {
-    margin: 0 auto;
-  }
-}
+
 .comment__card {
   box-shadow: 1px 1px 20px #ccc;
 }
