@@ -1,24 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About this project
 
-Things you may want to cover:
+This is a practice project, it has the basic functionalities of a blog:
+- Category and Articles CRUD, and 
+- CRUD de Categorías y Artículos, and the option to add comments to an article
+- It use Devise for user authentication
+- There are 2 types of user: Admin and Editor
+- Each user type has its own privileges manages with CanCanCan gem. See models/ability.rb
+- It use Active Storage and Action Text with Trix Editor
+- It has dummy data. See db/data/ files
+## Install
 
-* Ruby version
+### Prerequisites
 
-* System dependencies
+- Ruby 3.0.0
+- Rails 6.1
+- PostgreSQL 12.6 
+- imagemagick
+- [Bundler](https://github.com/bundler/bundler)
+- [Yarn](https://github.com/yarnpkg/yarn)
 
-* Configuration
+### Clone the repository
 
-* Database creation
+```shell
+git clone git@github.com:victoriae/blog_app.git
+cd blog_app
+sudo apt install imagemagick
+```
 
-* Database initialization
+### Install dependencies
 
-* How to run the test suite
+```shell
+bundle i
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Initialize the database
 
-* Deployment instructions
-
-* ...
+```shell
+rails db:create db:migrate seed:migrate
+```
