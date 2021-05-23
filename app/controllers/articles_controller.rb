@@ -1,10 +1,56 @@
 class ArticlesController < ApplicationController
   load_and_authorize_resource
   before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :init_index, only: :index
 
   # GET /articles or /articles.json
   def index
-    @articles = Article.all.order(created_at: :desc).page params[:page]
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  def init_index
+    init_filterrific
+  end
+
+  def init_filterrific
+    @filterrific = initialize_filterrific(
+      Article.all.order(created_at: :desc),
+      params[:filterrific],
+      select_options: {
+        with_category_id: categories,
+        with_user_id: users
+      }
+    ) || return
+
+    @articles = @filterrific.find.page(params[:page])
+
+  end
+
+  def categories
+    articles = Article.all
+    if articles.present?
+      categories = articles.map do |article|
+        [article.category.name, article.category.id]
+      end
+      categories.uniq
+    else
+      {}
+    end
+  end
+
+  def users
+    articles = Article.all
+    if articles.present?
+      users = articles.map do |article|
+        [article.user.full_name, article.user.id]
+      end
+      users.uniq
+    else
+      {}
+    end
   end
 
   # GET /articles/1 or /articles/1.json

@@ -1,0 +1,21 @@
+<div class="row" id="filterrific_results">
+  <% articles.each do |article| %>
+    <div class="col-md-4 mb-3">
+      <div class="card h-100">
+        <%= image_tag 'https://via.placeholder.com/500x300',
+                      class: 'card-img-top',
+                      alt: ''%>
+        <div class="card-body">
+          <h5 class="card-title"><%= article.title %></h5>
+          <h6 class="card-subtitle mb-2 text-muted">Published: <%= article.created_at.strftime('%m/%d/%Y') %></h6>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= article.category.name %></li>
+        </ul>
+        <div class="card-footer">
+          <%= link_to 'Show', article, class: 'btn btn-primary w-100' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
