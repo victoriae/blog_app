@@ -7,7 +7,6 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import "youtube"
 import Nabvar from "bootstrap"
 
 Rails.start()
@@ -16,3 +15,4 @@ ActiveStorage.start()
 
 require("trix")
 require("@rails/actiontext")
+import "../youtube"
