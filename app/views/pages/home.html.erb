@@ -1,2 +1,32 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1 id="readme">README</h1>
+<h2 id="about-this-project">About this project</h2>
+<p>This is a practice project, it has the basic functionalities of a blog:</p>
+<ul>
+<li>Category and Articles CRUD, and the option to add comments to an article</li>
+<li>It use Devise for user authentication</li>
+<li>There are 2 types of user: Admin and Editor</li>
+<li>Each user type has its own privileges manages with CanCanCan gem. See models/ability.rb</li>
+<li>It use Active Storage and Action Text with Trix Editor</li>
+<li>It has dummy data. See db/data/ files</li>
+</ul>
+<h2 id="install">Install</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Ruby 3.0.0</li>
+<li>Rails 6.1</li>
+<li>PostgreSQL 12.6 </li>
+<li>imagemagick</li>
+<li><a href="https://github.com/bundler/bundler">Bundler</a></li>
+<li><a href="https://github.com/yarnpkg/yarn">Yarn</a></li>
+</ul>
+<h3 id="clone-the-repository">Clone the repository</h3>
+<pre><code class="lang-shell">git clone git@github<span class="hljs-selector-class">.com</span>:victoriae/blog_app<span class="hljs-selector-class">.git</span>
+cd blog_app
+sudo apt install imagemagick
+</code></pre>
+<h3 id="install-dependencies">Install dependencies</h3>
+<pre><code class="lang-shell"><span class="hljs-keyword">bundle </span>i
+</code></pre>
+<h3 id="initialize-the-database">Initialize the database</h3>
+<pre><code class="lang-shell"><span class="hljs-selector-tag">rails</span> <span class="hljs-selector-tag">db</span><span class="hljs-selector-pseudo">:create</span> <span class="hljs-selector-tag">db</span><span class="hljs-selector-pseudo">:migrate</span> <span class="hljs-selector-tag">seed</span><span class="hljs-selector-pseudo">:migrate</span>
+</code></pre>

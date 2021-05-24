@@ -3,8 +3,7 @@
 ## About this project
 
 This is a practice project, it has the basic functionalities of a blog:
-- Category and Articles CRUD, and 
-- CRUD de Categorías y Artículos, and the option to add comments to an article
+- Category and Articles CRUD, and the option to add comments to an article
 - It use Devise for user authentication
 - There are 2 types of user: Admin and Editor
 - Each user type has its own privileges manages with CanCanCan gem. See models/ability.rb
